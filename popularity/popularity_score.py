@@ -16,8 +16,6 @@ def concatenate(list):
         empty+= ',' + page
     return empty
 
-
-
 popularity_scores = []
 with open('data.csv', 'r') as file:
     csv_reader = csv.reader(file, delimiter=',')
@@ -33,7 +31,7 @@ with open('data.csv', 'r') as file:
 
 print("writing file")
 
-with open('popularity_scores.csv', 'w') as f:
+with open('popularity/popularity_scores.csv', 'w') as f:
     for item in popularity_scores:
         popularity_writer = csv.writer(f,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
         popularity_writer.writerow([item[0],item[1]])

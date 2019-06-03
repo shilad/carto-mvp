@@ -21,11 +21,6 @@ for vector in vectors:
 print(foodVectors.keys())
 print(len(foodVectors))
 
-# Created csv file
-
-# with open('vectors/food-vectors.csv', 'w') as f:
-#     for key in foodVectors.keys():
-#         f.write("%s,%s\n" % (key, foodVectors[key]))
 
 
 
