@@ -19,9 +19,11 @@ for url in urls:
         title = rows[i].find_all('td')
         titles.append(title[1].a.text.strip())
 
-with open('data.csv', 'w') as f:
-    for item in titles:
-        f.write("%s\n" % item)
+# Created csv file:
+
+# with open('data.csv', 'w') as f:
+#     for item in titles:
+#         f.write("%s\n" % item)
 
 
 
