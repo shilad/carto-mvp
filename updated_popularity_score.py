@@ -27,10 +27,10 @@ with open('data.csv', 'r') as file:
     csv_reader = csv.reader(file, delimiter=',')
     for food in csv_reader:
         try:
-            if len(food)>1:
+            if len(food) > 1:
                 con_cat_page = concatenate(food)
                 popularity_scores.append(get_page_views(con_cat_page[1:len(con_cat_page)]))
-            elif len(food) ==1:
+            elif len(food) == 1:
                 popularity_scores.append(get_page_views(food[0]))
         except:
             print(food[0])
