@@ -30,9 +30,13 @@ with open('data.csv', 'r') as file:
                 popularity_scores.append(get_PageViews(food[0]))
         except:
             pass
+
 print("writing file")
+
 with open('popularity_scores.csv', 'w') as f:
     for item in popularity_scores:
-        f.write("%s\n" % item)
+        popularity_writer = csv.writer(f,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
+        popularity_writer.writerow([item[0],item[1]])
+
 
 
