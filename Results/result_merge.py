@@ -1,6 +1,6 @@
 import pandas as pd
 
-food_vectors = pd.read_csv('../vectors/t-SNE_Vectors')
+food_vectors = pd.read_csv('../vectors/t-SNE_Vectors.csv')
 food_clusters = pd.read_csv('../Clustering/food_clusters.csv')
 
 final_df = food_vectors.join(food_clusters, how='outer')
