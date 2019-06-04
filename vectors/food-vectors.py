@@ -1,5 +1,6 @@
 import csv
 from collections import defaultdict
+import pandas as pd
 
 vectors = {}
 foodVectors = defaultdict(list)
@@ -20,6 +21,11 @@ for vector in vectors:
 
 print(foodVectors.keys())
 print(len(foodVectors))
+
+pd_foodVectors = pd.DataFrame(list(foodVectors.items()))
+pd_foodVectors.columns = ['Article', 'Vectors']
+final_vectors = pd_foodVectors.set_index('Article')
+final_vectors.to_csv("vectors/t-SNE_Vectors")
 
 
 
