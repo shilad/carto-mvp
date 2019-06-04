@@ -24,7 +24,7 @@ popularity_scores = []
 
 # print(get_page_views('20190501', '20190601', 'Bauhaus books + coffee', 'monthly'))
 print(popularity_scores.append(get_page_views('20180601', '20190601', food[0], 'monthly')))
-with open('data.csv', 'r') as file:
+with open('../domain-concept/data.csv', 'r') as file:
     csv_reader = csv.reader(file, delimiter=',')
     for food in csv_reader:
         try:
