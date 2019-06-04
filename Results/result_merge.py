@@ -1,9 +1,16 @@
 import pandas as pd
+import csv
 
-food_vectors = pd.read_csv('../vectors/t-SNE_Vectors')
-food_clusters = pd.read_csv('../Clustering/food_clusters.csv')
+current = pd.read_csv('../combined_xy_clustered.csv')
 
-final_df = food_vectors.join(food_clusters, how='outer')
-final_df.columns = ['Articles', 'Vectors','Cluster_group']
 
-print(final_df.head())
+
+
+popularity = pd.read_csv('../popularity/2018_popularity_scores.csv', header=None)
+popularity = popularity.replace(" ", "_",regex=True)
+
+popularity.columns = ['Article', 'pop_score']
+
+current_pop = current.merge(popularity, how="inner")
+
+export = current_pop.to_csv(r'../Results/results.csv', index=False)
