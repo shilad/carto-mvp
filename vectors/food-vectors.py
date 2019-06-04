@@ -1,10 +1,11 @@
 import csv
 from collections import defaultdict
 import pandas as pd
+
 vectors = {}
 foodVectors = defaultdict(list)
 
-with open('original-vectors.txt', encoding="ISO-8859-1") as file:
+with open('../vectors/original-vectors.txt', encoding="ISO-8859-1") as file:
     for line in file:
         values = line.split()
         vectors[values[0]] = values[1:]
@@ -17,12 +18,15 @@ print(foods)
 for vector in vectors:
     if vector in foods:
         foodVectors[vector] = vectors.get(vector)
+        print(foodVectors[vector])
 
-df = pd.DataFrame(list(foodVectors.items())[1:15])
-dfk = df.head()
+print(foodVectors.keys())
+print(len(foodVectors))
 
-print(dfk)
-# print(foodVectors.values()[0])
+pd_foodVectors = pd.DataFrame(list(foodVectors.items()))
+pd_foodVectors.columns = ['Article', 'Vectors']
+final_vectors = pd_foodVectors.set_index('Article')
+final_vectors.to_csv("vectors/t-SNE_Vectors")
 
 
 
