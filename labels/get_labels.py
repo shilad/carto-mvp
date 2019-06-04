@@ -25,5 +25,7 @@ with open("../domain-concept/data.csv", "r") as data:
         label = assign_categories(wiki_wiki.page(row._1))
         labels.append(label)
 
-    df["Labels"] = labels
-    df.to_csv("data_with_labels.csv", sep=";", index = False, encoding='utf-8')
+print(df.head())
+
+df["Labels"] = labels
+df.to_csv("data_with_labels.csv", sep=";", index = False, encoding='utf-8')
