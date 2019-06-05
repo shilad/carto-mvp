@@ -2,7 +2,7 @@ import pandas as pd
 import drawSvg as draw
 
 data = pd.read_csv("../Results/final.csv").iloc[:, 1:]
-color = ["red", "blue", "green", "yellow", "brown", "orange", "cyan", "black"]
+color = ["red", "blue", "green", "purple", "brown", "orange", "cyan", "black"]
 
 
 def scale():
@@ -56,8 +56,9 @@ for i in range(4001):
 
 # Draw labels for each countries
 country_label_dic = find_boundaries()
+t = 0
 for key, value in country_label_dic.items():
-    d.append(draw.Text(value[2], 100, value[0]*20, value[1]*20))
-
+    d.append(draw.Text(value[2], 100, value[0]*20, value[1]*20, fill=color[t]))
+    t = t+1
 d.setPixelScale(2)  # Set number of pixels per geometry unit
 d.saveSvg('example.svg')
